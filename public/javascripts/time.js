@@ -1,6 +1,7 @@
 function getTime(){
     //document.getElementById('timedisplay').innerHTML = new Date().toString();
-    $.get( '/time/gettime', function(data) {
+    var parameters = { format: 'short' };
+    $.get( '/time/gettime', parameters, function(data) {
         $('#timedisplay').html(data);
       });
   }
