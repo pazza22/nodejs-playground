@@ -2,7 +2,6 @@ var express = require('express');
 var date_time = require('./../bl/date-time');
 var router = express.Router();
 
-/* GET home page. */
 router.get('/gettime', function (req, res, next) {
   let date = new date_time();
   let formattedDate = '';

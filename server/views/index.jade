@@ -3,9 +3,12 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  button(id="clickme", onclick="getTime()") What time is it?
+  button(id="btn_short_time", onclick="get_time('short')") Get Short Time
+  button(id="btn_full_time", onclick="get_time('full')") Get Full Time
+  button(id="btn_users", onclick="get_users()") Get Users
   
   #timedisplay
+  #usersdisplay
   script(src="https://code.jquery.com/jquery-3.6.0.min.js", integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=", crossorigin="anonymous")
-  script(src="/javascripts/time.js")   
+  script(src="/javascripts/index.js")   
     
