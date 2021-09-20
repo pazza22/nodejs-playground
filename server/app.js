@@ -3,9 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var config = require('dotenv').config()
+var config = require('dotenv').config();
+var cors = require("cors");
 
 var indexRouter = require('./routes/index');
+var ipRouter = require('./routes/ip');
 var timeRouter = require('./routes/time');
 var userRouter = require('./routes/user');
 
@@ -17,11 +19,13 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/ip', ipRouter);
 app.use('/time', timeRouter);
 app.use('/user', userRouter);
 
