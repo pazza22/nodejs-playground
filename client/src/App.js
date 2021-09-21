@@ -1,11 +1,18 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import GoogleAuth from './components/googleauth';
 import logo from './logo.svg';
 import './App.css';
+var config = require('dotenv').config();
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { apiResponse: "" }
+    this.state = { apiResponse: "" };
+  }
+
+  componentDidMount(){
+    console.log(this.refs["googleauth"]);
   }
 
   whatIsMyIP() {
@@ -20,7 +27,7 @@ class App extends React.Component {
 
         <button id="btn_ip" onClick={this.whatIsMyIP.bind(this)}>What is my IP?</button>
         <div>What is my IP? {this.state.apiResponse}</div>
-
+        <GoogleAuth />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
